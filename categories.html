@@ -1,0 +1,20 @@
+---
+layout: default
+permalink: /categories
+title: Categories
+---
+
+<div>
+    {% for category in site.categories %}
+    <div>
+        {{ category[0] }}
+        <ul>
+        {% for post in category[1] %}
+            <li>
+                <a href="{{ site.baseurl }} {{post.url}}">{{post.title}}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>

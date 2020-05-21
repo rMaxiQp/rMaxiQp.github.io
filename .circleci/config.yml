@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  jekyll_deploy:
+    docker:
+      - image: circleci/ruby:2.4.3-node-browsers
+    environment:
+      JEKYLL_GITHUB_TOKEN: ${GITHUB_TOKEN}
+    steps:
+      - checkout
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install
+      - run: 
+          name: Jekyll build
+          command: bundle exec jekyll build
+      - run:
+          name: HTMLProofer tests
+          command: |
+            bundle exec htmlproofer ./_site \
+              --allow-hash-href \
+              --check-favicon \
+              --assume-extension \
+              --check-html \
+              --disable-external
+      - deploy:
+          name: Deploy Release to GitHub
+          command: |
+            if [ $CIRCLE_BRANCH == 'develop' ]; then
+              bash .circleci/setup-github.sh
+            fi
+            
+workflows:
+  version: 2
+  jekyll:
+    jobs:
+      - jekyll_deploy:
+          filters:
+            branches:
+              ignore:
+                - master
