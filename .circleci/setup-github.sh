@@ -3,7 +3,6 @@ git config user.name "${USER_NAME}"
 git config user.email "${USER_EMAIL}"
 
 git checkout master
-git log HEAD..origin/master
 
 git add .
 git stash
@@ -23,4 +22,4 @@ git add -A .
 
 git commit --allow-empty -m "[CircleCI Automation] $(git log develop -1 --pretty=%B)"
 
-git push -q https://${USER_NAME}:${JEKYLL_GITHUB_TOKEN}@github.com/${USER_NAME}/rMaxiQp.github.io.git master
+git push -q -f https://${USER_NAME}:${JEKYLL_GITHUB_TOKEN}@github.com/${USER_NAME}/rMaxiQp.github.io.git master
