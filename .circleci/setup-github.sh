@@ -5,6 +5,9 @@ git config user.email "${USER_EMAIL}"
 git checkout master
 git log HEAD..origin/master
 
+git add .
+git stash
+
 # git pull -s recursive -X ours origin master
 
 git rebase --onto master develop
