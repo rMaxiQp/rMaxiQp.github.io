@@ -3,8 +3,6 @@ jobs:
   jekyll_deploy:
     docker:
       - image: circleci/ruby:2.4.3-node-browsers
-    environment:
-      JEKYLL_GITHUB_TOKEN: ${GITHUB_TOKEN}
     steps:
       - checkout
       - run:

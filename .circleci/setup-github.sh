@@ -20,4 +20,4 @@ git add -A .
 
 git commit --allow-empty -m "[CircleCI Automation] $(git log develop -1 --pretty=%B)"
 
-git push -q https://${USER_NAME}:${GITHUB_TOKEN}@github.com/${USER_NAME}/rMaxiQp.github.io.git master
+git push -q https://${USER_NAME}:${JEKYLL_GITHUB_TOKEN}@github.com/${USER_NAME}/rMaxiQp.github.io.git master
