@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "PostgreSQL Insert Query"
-date:   2020-05-24
-edit:   2020-05-24
+title:  "PostgeSQL Insert Query"
+date:   2020-06-09
+edit:   2020-06-09
 categories: [SQL, Note]
 tags: [Language]
 author: Q
