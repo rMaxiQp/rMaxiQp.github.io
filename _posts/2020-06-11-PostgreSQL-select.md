@@ -2,7 +2,7 @@
 layout: post
 title:  "PostgeSQL Select Query"
 date:   2020-06-11
-edit:   2020-06-11
+edit:   2020-06-12
 categories: [SQL, Note]
 tags: [Language]
 author: Q
@@ -12,7 +12,7 @@ author: Q
 
 ## Syntax
 
-```.txt
+{% highlight sql %}
 [ WITH [ RECURSIVE ] with_query [, ...] ]
 SELECT [ ALL | DISTINCT [ ON ( expression [, ...] ) ] ]
     [ * | expression [ [ AS ] output_name ] [, ...] ]
@@ -56,7 +56,7 @@ and with_query is:
     with_query_name [ ( column_name [, ...] ) ] AS ( select | values | insert | update | delete )
 
 TABLE [ ONLY ] table_name [ * ]
-```
+{% endhighlight %}
 
 ## Process Order
 
@@ -99,18 +99,18 @@ TABLE [ ONLY ] table_name [ * ]
 
 To join the table `flights` with the table `logs`:
 
-```.sql
+{% highlight sql %}
 SELECT
     f.code, f.company
 FROM
     flights f, logs l
 WHERE
     f.date = l.date;
-```
+{% endhighlight %}
 
 To retrieve from the table `flights` with some constraints:
 
-```.sql
+{% highlight sql %}
 SELECT
     f.code, f.company
 FROM
@@ -134,11 +134,11 @@ FROM
     flights
 ORDER BY
     capacity;
-```
+{% endhighlight %}
 
 To obtain the union of the tables `flights` with `logs`:
 
-```.sql
+{% highlight sql %}
 SELECT
     flights.date
 FROM
@@ -150,7 +150,7 @@ SELECT
     logs.date
 FROM
     logs;
-```
+{% endhighlight %}
 
 References:
 

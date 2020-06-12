@@ -2,7 +2,7 @@
 layout: post
 title:  "Callback, Promise, Async/Await"
 date:   2020-05-21
-edit:   2020-05-21
+edit:   2020-06-12
 categories: [JavaScript, Note]
 tags: [Language, Web]
 author: Q
@@ -17,28 +17,28 @@ For example, let the program print "Hello World!" after sleeping for 1 second.
 
 If we code in Python, we can have something as following:
 
-```.py
+{% highlight python %}
 from time import sleep
 
 sleep(1)
 print('Hello World!')
-```
+{% endhighlight %}
 
 Same goal can be achieved by using callback in JavaScript:
 
-```.js
+{% highlight js %}
 function hello_callback() {
     console.log('Hello World!')
 }
 
 // Wait for 1000 ms (1s) then invoke function hello_callback()
 setTimeout(hello_callback, 1000)
-```
+{% endhighlight %}
 
 Using promise or async/await can be little more complicated in this situation. 
 setTimeout() takes a function as input and it doesn't return a Promise object. Therefore, we will need to convert setTimeout into a Promise object to align with promise or async/await's syntax.
 
-```.js
+{% highlight js %}
 function timeout(ms) {
     return new Promise((resolve) => {
         setTimeout(resolve, ms)
@@ -59,7 +59,7 @@ async function hello_await(ms) {
 }
 
 hello_await(1000)
-```
+{% endhighlight %}
 
 Reference:
 

@@ -12,7 +12,7 @@ author: Q
 
 ## Syntax
 
-```.txt
+{% highlight sql %}
 [ WITH [ RECURSIVE ] with_query [, ...] ]
 UPDATE [ ONLY ] table_name [ * ] [ [ AS ] alias ]
     SET { column_name = { expression | DEFAULT } |
@@ -22,13 +22,13 @@ UPDATE [ ONLY ] table_name [ * ] [ [ AS ] alias ]
     [ FROM from_item [, ...] ]
     [ WHERE condition | WHERE CURRENT OF cursor_name ]
     [ RETURNING * | output_expression [ [ AS ] output_name ] [, ...] ]
-```
+{% endhighlight %}
 
 ## Example
 
 Update the column `capacity` of the table `flights`:
 
-```.sql
+{% highlight sql %}
 UPDATE
     flights
 SET
@@ -56,7 +56,7 @@ SET
 WHERE
     code = 'UA5502'
 AND date = '2009-02-03';
-```
+{% endhighlight %}
 
 Update the table `flights` using the table `logs`'s information:
 

@@ -2,7 +2,7 @@
 layout: post
 title:  "Node.js Events"
 date:   2020-05-24
-edit:   2020-05-24
+edit:   2020-06-12
 categories: [JavaScript, Note]
 tags: [Language, Web]
 author: Q
@@ -30,7 +30,6 @@ const emitter = new EventEmitter();
 emitter.on('event', () => { console.log('First Event') })
 
 emitter.on('event', () => { console.log('Second Event') })
-
 
 for (i = 0; i < 10; i++) {
 

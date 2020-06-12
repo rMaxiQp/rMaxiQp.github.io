@@ -2,7 +2,7 @@
 layout: post
 title:  "PostgeSQL Insert Query"
 date:   2020-06-09
-edit:   2020-06-09
+edit:   2020-06-12
 categories: [SQL, Note]
 tags: [Language]
 author: Q
@@ -12,7 +12,7 @@ Query `INSERT` is used to create new rows in a table. In other words, it creates
 
 ## Syntax
 
-```.txt
+{% highlight sql %}
 [ WITH [ RECURSIVE ] with_query [, ...] ]
 INSERT INTO table_name [ AS alias ] [ ( column_name [, ...] ) ]
     { DEFAULT VALUES | VALUES ( { expression | DEFAULT } [, ...] ) [, ...] | query }
@@ -32,13 +32,13 @@ and conflict_action is one of:
                     ( column_name [, ...] ) = ( sub-SELECT )
                   } [, ...]
               [ WHERE condition ]
-```
+{% endhighlight %}
 
 ## Example
 
 Insert a single row into table `flights`:
 
-```.sql
+{% highlight sql %}
 INSERT INTO flights VALUES
     ('UA5502', 'United Airline', 200, '2009-02-03');
 
@@ -49,21 +49,21 @@ INSERT INTO flights (code, company, capacity, date) VALUES
     ('UA5502', 'United Airline', 200, DEFAULT);
 
 INSERT INTO flights DEFAULT VALUES;
-```
+{% endhighlight %}
 
 Insert multiple rows into table `flights`:
 
-```.sql
+{% highlight sql %}
 INSERT INTO flights (code, company, capacity, date) VALUES
     ('UA5502', 'United Airline', 200, '2009-02-03')
     ('JB2245', 'Jet Blue', 150, '2009-04-03');
 
 INSERT INTO flights SELECT * FROM current_flights WHERE company == 'United Airline';
-```
+{% endhighlight %}
 
 Return information:
 
-```.sql
+{% highlight sql %}
 INSERT INTO flights VALUES
     ('UA5502', 'United Airline', 200, '2009-02-03')
 RETURNING id;
@@ -71,11 +71,11 @@ RETURNING id;
 INSERT INTO flights VALUES
     ('UA5502', 'United Airline', 200, '2009-02-03')
 RETURNING *;
-```
+{% endhighlight %}
 
 On conflict:
 
-```.sql
+{% highlight sql %}
 INSERT INTO flights (code, company, capacity, date) VALUES
     ('UA5502', 'United Airline', 200, '2009-02-03')
 ON CONFLICT (code, date) DO NOTHING;
@@ -86,7 +86,7 @@ INSERT INTO flights (code, company, capacity, date) VALUES
 ON CONFLICT (code, date) DO UPDATE SET
     capacity = EXCLUDED.capacity
 AND company = EXCLUDED.company;
-```
+{% endhighlight %}
 
 References:
 
