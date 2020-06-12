@@ -22,7 +22,7 @@ The `eventEmitter.emit()` method allows an arbitrary set of arguments to be pass
 
 > The EventEmitter calls all listeners synchronously in the order in which they were registered. This ensures the proper sequencing of events and helps avoid race conditions and logic errors.
 
-```.js
+{% highlight js %}
 const EventEmitter = require('events');
 
 const emitter = new EventEmitter();
@@ -43,7 +43,7 @@ for (i = 0; i < 10; i++) {
      */
     emitter.emit('event')
 }
-```
+{% endhighlight %}
 
 Using `setImmediate()` or `process.nextTick()` methods can switch listener functions to an asynchronous mode of operation.
 
