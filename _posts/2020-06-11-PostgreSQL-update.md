@@ -2,7 +2,7 @@
 layout: post
 title:  "PostgeSQL Update Query"
 date:   2020-06-11
-edit:   2020-06-11
+edit:   2020-06-12
 categories: [SQL, Note]
 tags: [Language]
 author: Q
@@ -60,7 +60,7 @@ AND date = '2009-02-03';
 
 Update the table `flights` using the table `logs`'s information:
 
-```.sql
+{% highlight sql %}
 UPDATE
     flights
 SET
@@ -87,7 +87,7 @@ WHERE
         log.event = 'Arrival'
      AND log.id = 55021
     );
-```
+{% endhighlight %}
 
 References:
 
