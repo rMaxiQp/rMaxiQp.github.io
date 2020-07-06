@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <title> Remote Procedure Call </title>
+    
+    <link rel="icon" href="/assets/images/favicon.ico">
+
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Remote Procedure Call | Q</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Remote Procedure Call" />
+<meta name="author" content="Q" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Remote Procedure Call (RPC) protocol is designed for network programming, allowing a program to make a subroutine call on a remote machine. In other words, it sends a carefully crafted message that let a remote machine provides the service." />
+<meta property="og:description" content="The Remote Procedure Call (RPC) protocol is designed for network programming, allowing a program to make a subroutine call on a remote machine. In other words, it sends a carefully crafted message that let a remote machine provides the service." />
+<link rel="canonical" href="/2020/05/23/RPC" />
+<meta property="og:url" content="/2020/05/23/RPC" />
+<meta property="og:site_name" content="Q" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-23T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"The Remote Procedure Call (RPC) protocol is designed for network programming, allowing a program to make a subroutine call on a remote machine. In other words, it sends a carefully crafted message that let a remote machine provides the service.","author":{"@type":"Person","name":"Q"},"@type":"BlogPosting","url":"/2020/05/23/RPC","headline":"Remote Procedure Call","dateModified":"2020-05-23T00:00:00+00:00","datePublished":"2020-05-23T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"/2020/05/23/RPC"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=1dda7868bed0d367668f4f6135bd58f66be85243">
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1><a href="/">Q</a></h1>
+
+            
+
+            <p>Random posts about ... stuff</p>
+
+            
+            <p class="view"><a href="https://github.com/rMaxiQp/rMaxiQp.github.io">View the Project on GitHub
+                    <small>rMaxiQp/rMaxiQp.github.io</small></a></p>
+            
+
+            
+
+            
+        </header>
+        <section>
+
+            <small>23 May 2020</small>
+<h1>Remote Procedure Call</h1>
+
+<p class="view">by Q</p>
+
+<p>The Remote Procedure Call (RPC) protocol is designed for network programming, allowing a program to make a subroutine call on a remote machine. In other words, it sends a carefully crafted message that let a remote machine provides the service.</p>
+
+<p>Key features of RPC:</p>
+
+<ul>
+  <li>
+    <p><strong>Request-reply</strong></p>
+
+    <p>RPC is a request-reply protocol having typical the “ping-pong” behavior of such protocol. Though it is not fundamental to RPC’s design, most program will design blocking function awaiting the reply.</p>
+  </li>
+  <li>
+    <p><strong>UDP or TCP transport</strong></p>
+
+    <p>RPC/UDP is a connection-less, stateless protocol.
+  RPC/TCP is a reliable, stateful protocol.</p>
+  </li>
+  <li>
+    <p><strong>Standardized data representation</strong></p>
+
+    <p>RPC uses the eXternal Data Representation (XDR) protocol to standardize the format of integers, floating point numbers, and strings.</p>
+  </li>
+  <li>
+    <p><strong>Authentication</strong></p>
+
+    <p>RPC provides support for authenticating the calling program on one machine to the target subroutine on the author. Authentication can operate in several different modes. For example, NFS’s authentication relies on UNIX user and group IDs to the file server for permission checking.</p>
+  </li>
+</ul>
+
+<p>Both TCP and UDP rely on specific port numbers to perform service rendezvous. RPC divorce services from being tied to a given port number by using a specific service called <strong>PORTMAP</strong> or <strong>RPCBIND</strong>. The service itself uses port 111, and other RPC services can register themselves using an RPC call to port 111. The portmapper offers other RPC calls to permit service lookup. Such architecture requires the portmapper must be the first RPC program started, and must remain in constant operation.</p>
+
+<blockquote>
+  <p>Each remote procedure call has two sides: an active client side that makes the call to a server, which sends back a reply.</p>
+</blockquote>
+
+<p>RPC uses a typical client-server design. A remote machine implements one or more remote procedures that clients can hit via exposed endpoints. The terms client and server only apply to a particular transaction; a particular host or program could operate in both roles at different times.</p>
+
+<p>Few important ways in which RPC differ from local procedure calls:</p>
+
+<ul>
+  <li>
+    <p>Error handling</p>
+
+    <p>Failure of the remote server or network must be handled when using RPC</p>
+  </li>
+  <li>
+    <p>Global variables and side-effects</p>
+
+    <p>Since the server does not have access to the client’s address space, hidden arguments cannot be passed as global variables or returned as side effects.</p>
+  </li>
+  <li>
+    <p>Performance</p>
+
+    <p>Remote procedures usually operate one or more orders of magnitude slower than local procedure calls.</p>
+  </li>
+  <li>
+    <p>Authentication</p>
+
+    <p>Since RPC can be transported over unsecured networks, authentication may be necessary. Authentication prevents one entity from masquerading as some other entity.</p>
+  </li>
+</ul>
+
+<p>Reference:</p>
+
+<ul>
+  <li><a href="https://www.freesoft.org/CIE/RFC/1831/index.htm">https://www.freesoft.org/CIE/RFC/1831/index.htm</a></li>
+  <li><a href="https://www.freesoft.org/CIE/Topics/86.htm">https://www.freesoft.org/CIE/Topics/86.htm</a></li>
+</ul>
+
+
+<small>Updated: 23 May 2020</small>
+<br />
+
+<small>tags: <em>Network</em> - <em>Web</em></small>
+
+
+
+        </section>
+        <footer>
+            
+            <p>This project is maintained by <a href="https://github.com/rMaxiQp">rMaxiQp</a></p>
+            
+            <p>
+                <small> Hosted on GitHub Pages &nbsp; </small>
+                <small> Deployed by CircleCI </small>
+                <small> Theme by <a href="https://github.com/orderedlist">orderedlist</a></small>
+            </p>
+        </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+    
+</body>
+
+</html>

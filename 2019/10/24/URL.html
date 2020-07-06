@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <title> URL format </title>
+    
+    <link rel="icon" href="/assets/images/favicon.ico">
+
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>URL format | Q</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="URL format" />
+<meta name="author" content="Q" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A Uniform Resource Locator (URL) is a reference to a web resource that specifies its location on a network. A more general category is named Uniform Resource Identifier (URI)." />
+<meta property="og:description" content="A Uniform Resource Locator (URL) is a reference to a web resource that specifies its location on a network. A more general category is named Uniform Resource Identifier (URI)." />
+<link rel="canonical" href="/2019/10/24/URL" />
+<meta property="og:url" content="/2019/10/24/URL" />
+<meta property="og:site_name" content="Q" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-10-24T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"A Uniform Resource Locator (URL) is a reference to a web resource that specifies its location on a network. A more general category is named Uniform Resource Identifier (URI).","author":{"@type":"Person","name":"Q"},"@type":"BlogPosting","url":"/2019/10/24/URL","headline":"URL format","dateModified":"2019-10-24T00:00:00+00:00","datePublished":"2019-10-24T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"/2019/10/24/URL"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=1dda7868bed0d367668f4f6135bd58f66be85243">
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1><a href="/">Q</a></h1>
+
+            
+
+            <p>Random posts about ... stuff</p>
+
+            
+            <p class="view"><a href="https://github.com/rMaxiQp/rMaxiQp.github.io">View the Project on GitHub
+                    <small>rMaxiQp/rMaxiQp.github.io</small></a></p>
+            
+
+            
+
+            
+        </header>
+        <section>
+
+            <small>24 October 2019</small>
+<h1>URL format</h1>
+
+<p class="view">by Q</p>
+
+<p>A Uniform Resource Locator (URL) is a reference to a web resource that specifies its location on a network. A more general category is named Uniform Resource Identifier (URI).</p>
+
+<pre><code class="language-Text">URI = scheme:[//authority]path[?query][#fragement]
+
+authority = [userinfo@]host[:port]
+</code></pre>
+
+<ul>
+  <li><code class="highlighter-rouge">https://www.google.com</code> has path <code class="highlighter-rouge">www.google.com</code> with a scheme <code class="highlighter-rouge">https</code>.</li>
+  <li><code class="highlighter-rouge">https://foo:bar@www.example.com/?foo=bar</code> has path <code class="highlighter-rouge">www.example.com</code>, query <code class="highlighter-rouge">foo=bar</code>, authority <code class="highlighter-rouge">foo:bar</code> and scheme <code class="highlighter-rouge">https</code>.</li>
+</ul>
+
+<p>Another way to look URL:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Category</th>
+      <th>Explanation</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Domain Name</td>
+      <td>The registered identification string used by the Domain name System(DNS) to define a website location. <br /> It is the second last labeled part in a fully qualified domain name(FQDN)</td>
+      <td><strong>apple</strong>.com, <strong>google</strong>.com, <strong>wikipedia</strong>.org</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Top Level Domain(TLD)</td>
+      <td>last labeled part in a FQDN</td>
+      <td><strong>.com</strong>, <strong>.net</strong>, <strong>.org</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Subdomain</td>
+      <td>A relative dependence and representing part of a higher level domain. <br />For example, Domain Name is a subdomain for TLD.</td>
+      <td><strong>www</strong>.apple.com, <strong>www</strong>.google.com, <strong>www</strong>.wikipedia.org</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Protocol</td>
+      <td>The standard used for data transfer between the host and the client</td>
+      <td>FTP, DNS, DHCP, HTTP/HTTPS, SMTP</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Path/File</td>
+      <td>The exact location of a page or other asset</td>
+      <td>https://rmaxiqp.github.io/<strong>2019/11/05/DNS</strong>, https://rmaxiqp.github.io/<strong>2019/10/24/URL</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HTML Anchors</td>
+      <td>Website bookmarks and internal page navigation elements</td>
+      <td>https://en.wikipedia.org/wiki/URL#<strong>Syntax</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Parameters</td>
+      <td>Key/value pairs at the end of the URL <br /> begin with a <code class="highlighter-rouge">?</code> and separated by an <code class="highlighter-rouge">&amp;</code></td>
+      <td>https://duckduckgo.com/<strong>?q=wiki</strong>, https://www.google.com/search?<strong>q=hello&amp;oq=hello</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Resource:</p>
+
+<ul>
+  <li><a href="https://zvelo.com/anatomy-of-full-path-url-hostname-protocol-path-more/">https://zvelo.com/anatomy-of-full-path-url-hostname-protocol-path-more/</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/URL">https://en.wikipedia.org/wiki/URL</a></li>
+</ul>
+
+
+<small>Updated: 5 November 2019</small>
+<br />
+
+<small>tags: <em>Network</em> - <em>Web</em></small>
+
+
+
+        </section>
+        <footer>
+            
+            <p>This project is maintained by <a href="https://github.com/rMaxiQp">rMaxiQp</a></p>
+            
+            <p>
+                <small> Hosted on GitHub Pages &nbsp; </small>
+                <small> Deployed by CircleCI </small>
+                <small> Theme by <a href="https://github.com/orderedlist">orderedlist</a></small>
+            </p>
+        </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+    
+</body>
+
+</html>

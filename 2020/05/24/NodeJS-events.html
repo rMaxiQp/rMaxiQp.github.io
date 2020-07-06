@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <title> Node.js Events </title>
+    
+    <link rel="icon" href="/assets/images/favicon.ico">
+
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Node.js Events | Q</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Node.js Events" />
+<meta name="author" content="Q" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In computer programming, event-driven programming is a programming paradigm in which the flow of the program is determined by events such as user actions (mouse clicks, key presses), sensor outputs, or messages from other programs or threads." />
+<meta property="og:description" content="In computer programming, event-driven programming is a programming paradigm in which the flow of the program is determined by events such as user actions (mouse clicks, key presses), sensor outputs, or messages from other programs or threads." />
+<link rel="canonical" href="/2020/05/24/NodeJS-events" />
+<meta property="og:url" content="/2020/05/24/NodeJS-events" />
+<meta property="og:site_name" content="Q" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-24T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"In computer programming, event-driven programming is a programming paradigm in which the flow of the program is determined by events such as user actions (mouse clicks, key presses), sensor outputs, or messages from other programs or threads.","author":{"@type":"Person","name":"Q"},"@type":"BlogPosting","url":"/2020/05/24/NodeJS-events","headline":"Node.js Events","dateModified":"2020-05-24T00:00:00+00:00","datePublished":"2020-05-24T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"/2020/05/24/NodeJS-events"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=1dda7868bed0d367668f4f6135bd58f66be85243">
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1><a href="/">Q</a></h1>
+
+            
+
+            <p>Random posts about ... stuff</p>
+
+            
+            <p class="view"><a href="https://github.com/rMaxiQp/rMaxiQp.github.io">View the Project on GitHub
+                    <small>rMaxiQp/rMaxiQp.github.io</small></a></p>
+            
+
+            
+
+            
+        </header>
+        <section>
+
+            <small>24 May 2020</small>
+<h1>Node.js Events</h1>
+
+<p class="view">by Q</p>
+
+<blockquote>
+  <p>In computer programming, event-driven programming is a programming paradigm in which the flow of the program is determined by events such as user actions (mouse clicks, key presses), sensor outputs, or messages from other programs or threads.</p>
+</blockquote>
+
+<p>Differ from a typical procedural programming, event-driven programming defines action for each event.</p>
+
+<p>Node.js core API is built around an asynchronous event-driven architecture using <strong>emitters</strong> to emit <strong>listeners</strong> to be called.</p>
+
+<p>All <strong>emitters</strong> are instances of the <code class="highlighter-rouge">EventEmitter</code> class that exposes an <code class="highlighter-rouge">eventEmitter.on()</code> function that allows one or more functions to be registered to named events emitted by the object. <strong>Event names should be camel-cased strings</strong>.</p>
+
+<p>When the <code class="highlighter-rouge">EventEmitter</code> object emits an event, all of the functions attached to that specific event are called synchronously. The called listeners’ returned value are ignored and will be discarded.</p>
+
+<p>The <code class="highlighter-rouge">eventEmitter.emit()</code> method allows an arbitrary set of arguments to be passed to the listener functions. When the listener function is called, the standard <code class="highlighter-rouge">this</code> keyword will refer to the <code class="highlighter-rouge">EventEmitter</code> instance to which the listener is attached. However, <strong>such reference update does not apply to arrow functions</strong>.</p>
+
+<blockquote>
+  <p>The EventEmitter calls all listeners synchronously in the order in which they were registered. This ensures the proper sequencing of events and helps avoid race conditions and logic errors.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">const</span> <span class="nx">EventEmitter</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">events</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">emitter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EventEmitter</span><span class="p">();</span>
+
+<span class="nx">emitter</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">event</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">First Event</span><span class="dl">'</span><span class="p">)</span> <span class="p">})</span>
+
+<span class="nx">emitter</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">event</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Second Event</span><span class="dl">'</span><span class="p">)</span> <span class="p">})</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="cm">/* Output:
+     * First Event
+     * Second Event
+     * First Event
+     * Second Event
+     * ...
+     */</span>
+    <span class="nx">emitter</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">event</span><span class="dl">'</span><span class="p">)</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Using <code class="highlighter-rouge">setImmediate()</code> or <code class="highlighter-rouge">process.nextTick()</code> methods can switch listener functions to an asynchronous mode of operation.</p>
+
+<p>It is easy to produce an unhandled rejection when using <code class="highlighter-rouge">async</code> functions. The <code class="highlighter-rouge">captureRejections</code> option in the <code class="highlighter-rouge">EventEmitter</code> constructor or the global setting installs a <code class="highlighter-rouge">.then(undefined, handler)</code> handler on the <code class="highlighter-rouge">Promise</code>. This handler routes the exception asynchronously to <code class="highlighter-rouge">Symbol.for('nodejs.rejection')</code> method is there is one, or to <code class="highlighter-rouge">'error'</code> event handler is there is none.</p>
+
+<p>The <code class="highlighter-rouge">'error'</code> events that are generated by the <code class="highlighter-rouge">captureRejections</code> behavior do not have a catch handler to avoid infinite error loops. Therefore, <strong>do not use <code class="highlighter-rouge">async</code> functions as ‘error’ event handlers</strong>.</p>
+
+<p>References:</p>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Event-driven_programming">https://en.wikipedia.org/wiki/Event-driven_programming</a></li>
+  <li><a href="https://nodejs.org/api/events.html">https://nodejs.org/api/events.html</a></li>
+</ul>
+
+
+<small>Updated: 12 June 2020</small>
+<br />
+
+<small>tags: <em>Language</em> - <em>Web</em></small>
+
+
+
+        </section>
+        <footer>
+            
+            <p>This project is maintained by <a href="https://github.com/rMaxiQp">rMaxiQp</a></p>
+            
+            <p>
+                <small> Hosted on GitHub Pages &nbsp; </small>
+                <small> Deployed by CircleCI </small>
+                <small> Theme by <a href="https://github.com/orderedlist">orderedlist</a></small>
+            </p>
+        </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+    
+</body>
+
+</html>
