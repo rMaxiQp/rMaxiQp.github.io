@@ -27,6 +27,7 @@ defaults:
   run:
     # GitHub-hosted runners automatically enable `set -eo pipefail` for Bash shells.
     shell: bash
+    working-directory: ./src
 
 jobs:
   # Build job
@@ -37,7 +38,6 @@ jobs:
       HUGO_VERSION: 0.148.0
       HUGO_ENVIRONMENT: production
       TZ: America/Los_Angeles
-    working-directory: ./src
     steps:
       - name: Install Hugo CLI
         run: |
