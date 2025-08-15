@@ -15,7 +15,8 @@ theme = 'github-style'
   lastmod = true
   location = '127.0.0.1'
   url = 'https://rMaxiQp.github.io'
-  headerIcon = 'images/avatar.png'
+  headerIcon = '/assets/images/avatar.png'
+  avatar = '/assets/images/avatar.png'
 
 [frontmatter]
   lastmod = ['lastmod', ':fileModTime', ':default']
