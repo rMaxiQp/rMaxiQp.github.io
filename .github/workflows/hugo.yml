@@ -5,7 +5,7 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches:
-      - main
+      - master
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -86,7 +86,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: ./src/public
 
   # Deployment job
   deploy:
