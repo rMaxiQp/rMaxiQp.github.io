@@ -27,7 +27,6 @@ defaults:
   run:
     # GitHub-hosted runners automatically enable `set -eo pipefail` for Bash shells.
     shell: bash
-    working-directory: ./src
 
 jobs:
   # Build job
@@ -70,6 +69,8 @@ jobs:
             hugo-
       - name: Configure Git
         run: git config core.quotepath false
+      - name: CD to src
+        run: cd src
       - name: Build with Hugo
         run: |
           hugo \
