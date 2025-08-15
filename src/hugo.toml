@@ -1,0 +1,21 @@
+baseURL = 'https://rMaxiQp.github.io'
+languageCode = 'en-us'
+title = 'Q'
+theme = 'github-style'
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
+[params]
+  author = 'rMaxiQp'
+  description = 'A site for note-taking and writing practices'
+  github = 'rMaxiQp'
+  rss = false
+  lastmod = true
+  location = '127.0.0.1'
+  url = 'https://rMaxiQp.github.io'
+  headerIcon = 'images/avatar.png'
+
+[frontmatter]
+  lastmod = ['lastmod', ':fileModTime', ':default']
