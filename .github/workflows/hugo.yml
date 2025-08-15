@@ -69,15 +69,14 @@ jobs:
             hugo-
       - name: Configure Git
         run: git config core.quotepath false
-      - name: CD to src
-        run: cd src
       - name: Build with Hugo
         run: |
           hugo \
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
-            --cacheDir "${{ runner.temp }}/hugo_cache"
+            --cacheDir "${{ runner.temp }}/hugo_cache" \
+            --source src
       - name: Cache Save
         id: cache-save
         uses: actions/cache/save@v4
