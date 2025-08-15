@@ -74,8 +74,7 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/" \
-            --source src
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
       # - name: Cache Save
       #   id: cache-save
       #   uses: actions/cache/save@v4
@@ -86,8 +85,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./src/public
-          name: 'github-pages'
+          path: ./public
 
   # Deployment job
   deploy:
